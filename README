@@ -1,0 +1,31 @@
+#Introduction
+This package is used to create a suitable plan of credit price for 
+different borrowers.As historical borrowers'
+credit score and loan interests are given, you can train a credit price model 
+through this package, and this model will allow you to calculate a different, recommended
+loan interest for any borrower only based on his or her credit score.
+
+---
+#Example:
+```
+import creditprice as cp
+#生成数据
+import numpy as np
+import pandas as pd
+np.random.seed(123)
+score = 650 + 100 * np.random.randn(1000)
+price = 0.2 + 0.1 * np.random.randn(1000)
+flag = np.random.randint(2, size=1000)
+flagy = np.random.binomial(1, 0.2, size=flag[flag == 1].shape[0])
+data = pd.DataFrame(columns=['score', 'r', 'accept', 'flagy'])
+data['score'] = score
+data['r'] = price
+data['accept'] = flag
+data.loc[data.accept == 1, 'flagy'] = flagy
+#生成模型
+cl = cp.calc(ld=0.5, d = 1, rl = 0.05, rf = 0.04, score='score', interest='r', flag='accept', y = 'flagy')
+#计算利率表
+r_table = cl.calc_r_table(data = data)
+#根据data计算单利率
+r = cl.calc_r(p=0.2, data=data)
+```

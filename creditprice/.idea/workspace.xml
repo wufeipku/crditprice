@@ -2,30 +2,6 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="18cff5d7-2a82-4ef0-89db-dc96d4d18f77" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/.idea/creditprice.iml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/modules.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/other.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/build/gui/Analysis-00.toc" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/build/gui/EXE-00.toc" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/build/gui/PKG-00.pkg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/build/gui/PKG-00.toc" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/build/gui/PYZ-00.pyz" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/build/gui/PYZ-00.toc" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/build/gui/Tree-00.toc" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/build/gui/Tree-01.toc" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/build/gui/Tree-02.toc" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/build/gui/base_library.zip" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/build/gui/gui.exe.manifest" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/build/gui/warn-gui.txt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/build/gui/xref-gui.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/dist/gui.exe" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/dist/result.csv" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/gui.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/gui.spec" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/result.csv" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/creditprice.py" beforeDir="false" afterPath="$PROJECT_DIR$/creditprice.py" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -51,8 +27,8 @@
       <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/creditprice.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="275">
-              <caret line="108" column="29" lean-forward="true" selection-start-line="108" selection-start-column="29" selection-end-line="108" selection-end-column="29" />
+            <state relative-caret-position="465">
+              <caret line="118" column="29" lean-forward="true" selection-start-line="118" selection-start-column="29" selection-end-line="118" selection-end-column="29" />
               <folding>
                 <element signature="e#236#255#0" expanded="true" />
               </folding>
@@ -89,7 +65,7 @@
       </list>
     </option>
   </component>
-  <component name="ProjectFrameBounds" extendedState="7">
+  <component name="ProjectFrameBounds" extendedState="6">
     <option name="x" value="175" />
     <option name="width" value="1750" />
     <option name="height" value="980" />
@@ -219,12 +195,12 @@
       <workItem from="1621243218635" duration="1289000" />
       <workItem from="1621244639323" duration="7024000" />
       <workItem from="1621413647012" duration="10699000" />
-      <workItem from="1621502101818" duration="12948000" />
+      <workItem from="1621502101818" duration="13269000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="31960000" />
+    <option name="totallyTimeSpent" value="32281000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-7" y="-7" width="1550" height="838" extended-state="7" />
@@ -259,7 +235,7 @@
   </component>
   <component name="com.intellij.coverage.CoverageDataManagerImpl">
     <SUITE FILE_PATH="coverage/creditprice$gui.coverage" NAME="gui Coverage Results" MODIFIED="1621508025969" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
-    <SUITE FILE_PATH="coverage/creditprice$creditprice.coverage" NAME="creditprice Coverage Results" MODIFIED="1621587128267" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
+    <SUITE FILE_PATH="coverage/creditprice$creditprice.coverage" NAME="creditprice Coverage Results" MODIFIED="1621921057941" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
   </component>
   <component name="editorHistoryManager">
     <entry file="file://$PROJECT_DIR$/gui.py">
@@ -274,8 +250,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/creditprice.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="275">
-          <caret line="108" column="29" lean-forward="true" selection-start-line="108" selection-start-column="29" selection-end-line="108" selection-end-column="29" />
+        <state relative-caret-position="465">
+          <caret line="118" column="29" lean-forward="true" selection-start-line="118" selection-start-column="29" selection-end-line="118" selection-end-column="29" />
           <folding>
             <element signature="e#236#255#0" expanded="true" />
           </folding>

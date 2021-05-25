@@ -12,6 +12,13 @@ from mpl_toolkits.mplot3d import Axes3D
 from scipy.optimize import curve_fit
 from scipy.optimize import root
 # from joblib import Parallel, delayed
+import math
+from matplotlib import pyplot as plt
+from mpl_toolkits.mplot3d import Axes3D
+from scipy.optimize import curve_fit
+import sympy as sy
+from scipy.optimize import root
+from joblib import Parallel, delayed
 
 #定义接受率函数
 class credit_price:
@@ -125,6 +132,11 @@ class credit_price:
         data_t['pred'] = self.q1(data_t, *abc)
         pred = data_t.pred.unstack(level=[1]).fillna(method='ffill', axis=1)
         pred = pred.fillna(method='bfill', axis=1).values
+        y, x = np.meshgrid(temp.columns, temp.index)
+        z = temp.values
+        abc = self.calc_abc(data_t)
+        pred = self.q1(data_t, *abc)
+        pred = pred.reshape(x.shape)
         plt.rcParams['font.sans-serif'] = ['SimHei']
         plt.rcParams['axes.unicode_minus'] = False
         fig = plt.figure('拟合图')
@@ -152,6 +164,10 @@ class credit_price:
         #     for p in data_p.p.values.tolist()
         #     )
         r_list = [root(self.func_r, [0.2], (p,a,b,c), method='krylov', tol = 1e-3) for p in data_p.p.values.tolist()]
+        r_list =  Parallel(n_jobs=-1)(
+            delayed(root)(self.func_r, [0.2], (p, a, b, c), method = 'krylov', tol = 1e-3)
+            for p in data_p.p.values.tolist()
+            )
         r_list1 = [i.x[0] for i in r_list]
         data_p['pred_r'] = r_list1
         return data_p
@@ -160,25 +176,27 @@ class credit_price:
         data_t, data_p = self.data_transform(data)
         a, b, c = self.calc_abc(data_t)
         r = root(self.func_r, [0.3], (p,a,b,c), method = 'krylov', tol = 1e-3).x[0]
+        r = root(self.func_r, [0.2], (p,a,b,c), method = 'krylov', tol = 1e-3).x[0]
         return r
 
 def calc(ld, d = 1, rl = 0.05, rf = 0.04, score='score', interest='r', flag='accept', y = 'flagy'):
     f = credit_price(ld, d = 1, rl = 0.05, rf = 0.04, score='score', interest='r', flag='accept', y = 'flagy')
     return f
 #测试
-if __name__ == '__main__':
-    np.random.seed(123)
-    score = 650 + 100 * np.random.randn(10000)
-    price = 0.2 + 0.1 * np.random.randn(10000)
-    flag = np.random.randint(2, size=10000)
-    flagy = np.random.binomial(1, 0.2, size=flag[flag == 1].shape[0])
-    data = pd.DataFrame(columns=['score', 'r', 'accept', 'flagy'])
-    data['score'] = score
-    data['r'] = price
-    data['accept'] = flag
-    data.loc[data.accept == 1, 'flagy'] = flagy
-    data = pd.read_csv('example.csv', encoding='utf-8')
-    cp = credit_price(ld=0.5, d = 1, rl = 0.01, rf = 0.05, score='score', interest='r', flag='accept', y = 'flagy')
-    print(cp.calc_r_table(data))
-    print(cp.calc_r(0.6, data))
-    cp.q_plot(data)
+# if __name__ == '__main__':
+    # np.random.seed(123)
+    # score = 650 + 100 * np.random.randn(10000)
+    # price = 0.2 + 0.1 * np.random.randn(10000)
+    # flag = np.random.randint(2, size=10000)
+    # flagy = np.random.binomial(1, 0.2, size=flag[flag == 1].shape[0])
+    # data = pd.DataFrame(columns=['score', 'r', 'accept', 'flagy'])
+    # data['score'] = score
+    # data['r'] = price
+    # data['accept'] = flag
+    # data.loc[data.accept == 1, 'flagy'] = flagy
+    # data = pd.read_csv('example.csv', encoding='utf-8')
+    # cp = credit_price(ld=0.5, d = 1, rl = 0.01, rf = 0.05, score='score', interest='r', flag='accept', y = 'flagy')
+    # cp = credit_price(ld=0.5, d = 1, rl = 0.05, rf = 0.04, score='score', interest='r', flag='accept', y = 'flagy')
+    # print(cp.calc_r_table(data))
+    # print(cp.calc_r(0.6, data))
+    # cp.q_plot(data)
